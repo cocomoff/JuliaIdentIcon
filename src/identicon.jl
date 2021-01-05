@@ -22,7 +22,7 @@ function represent(s; S=DEF_SIZE)
     [smat reverse(smat, dims=2)]
 end
 
-get_initial_soutions(N; S=DEF_SIZE) = zeros(Int, N, S * div(S, 2))
+get_initial_solutions(N; S=DEF_SIZE) = zeros(Int, N, S * div(S, 2))
 
 
 function crossover(s1, s2; S=DEF_SIZE)
@@ -79,8 +79,7 @@ function visualize(solutions::Array{Int, 2}; PX=120, PY=120, figname="icons.png"
     end
 
     # plot all
-    fig = plot(h[1], h[2], h[3], h[4], h[5], h[6], h[7], h[8], h[9], h[10], layout=(2, 5),
-    aspect_ratio=1, colorbar=false, size=(PX * 5, PY * 2), ticks=false, c=:thermal)
+    fig = plot(h..., layout=(2, 5), aspect_ratio=1, colorbar=false, size=(PX * 5, PY * 2), ticks=false, c=:thermal)
     savefig(fig, figname)
     fig
 end
