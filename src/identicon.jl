@@ -33,7 +33,7 @@ function crossover(s1, s2; S=DEF_SIZE)
 end
 
 
-function mutation(s; S=SIZE)
+function mutation(s; S=DEF_SIZE)
     t = rand(1:(S * div(S, 2)))
     new_s = copy(s)
     new_s[t] = (new_s[t] + 1) % 2
@@ -53,7 +53,7 @@ function visualize_crossover(sol1, sol2; PX=120, PY=120, figname="icons_crossove
     fig
 end
 
-function visualize_mutation(sol; PX=120, PY=120, figname="icons_mutation.png", cmap=:thermal)
+function visualize_mutation(sol1; PX=120, PY=120, figname="icons_mutation.png", cmap=:thermal)
     ST = (PX, PY)
     sol1m = mutation(sol1)
     h1  = heatmap(represent(sol1), aspect_ratio=1, colorbar=false, title="1", size=ST, ticks=false, xaxis=false, yaxis=false, c=cmap)
